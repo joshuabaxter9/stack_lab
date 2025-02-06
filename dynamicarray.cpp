@@ -81,13 +81,12 @@ bool DynamicArray::Resize(bool upsize)
 /**
  * Function to push value onto stack
  *
- * @param   value    integer being pushed onto stack
- * @pre value is any integer
+ * @param   value    integer
  * @returns  returns true if successful
  **/
 bool DynamicArray::push(int val)
 {
-    // uses the insert last technique to add new values
+    // resize if going beyond current capacity
     if (size + 1 > capacity * SIZE_UP_THRESHOLD)
     {
         if (!Resize(true))
@@ -101,8 +100,6 @@ bool DynamicArray::push(int val)
 /**
  * Function to pop value off stack
  *
- * @param   none
- * @pre valid stack
  * @returns  returns the top value and removes from stack
  **/
 int DynamicArray::pop()
@@ -113,19 +110,18 @@ int DynamicArray::pop()
         cerr << "Can’t remove from an empty list\n";
         exit(1); // nonzero exit codes indicate error
     }
-    // store val
+    // store top value in val
     int val = this->array[size - 1];
     // decrement size
     size--;
-    // return the val at top
+    // return the val
     return val;
 }
 
 /**
  * Function to check if value is in the stack
  *
- * @param   num    integer to check if it exists in stack
- * @pre num is an integer that exist or doesn't in stack
+ * @param   num    integer to check
  * @returns  returns true if num is found in stack
  **/
 bool DynamicArray::exists(int val)
@@ -144,8 +140,6 @@ bool DynamicArray::exists(int val)
 /**
  * Function that returns value at top of stack
  *
- * @param  none
- * @pre exists a valid stack
  * @returns  returns top value if successful
  **/
 int DynamicArray::top()

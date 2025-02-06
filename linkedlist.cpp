@@ -21,8 +21,7 @@ LinkedList::~LinkedList()
 /**
  * Function to push value onto stack
  *
- * @param   value    integer being pushed onto stack
- * @pre value is any integer
+ * @param   value    integer
  * @returns  returns true if successful
  **/
 
@@ -38,16 +37,17 @@ bool LinkedList::push(int value)
     {
         newNode->next = head;
     }
+    // make new head node
     head = newNode;
+    // increment stack size
     size++;
+    // return success
     return true;
 }
 
 /**
  * Function to pop value off stack
  *
- * @param   none
- * @pre valid stack
  * @returns  returns the top value and removes from stack
  **/
 int LinkedList::pop()
@@ -75,8 +75,7 @@ int LinkedList::pop()
 /**
  * Function to check if value is at top of stack
  *
- * @param   num    integer to check if it exists in stack
- * @pre num is an integer that exists or doesnt at top of stack
+ * @param   num    integer to check
  * @returns  returns true if num is found at top of stack
  **/
 bool LinkedList::exists(int num)
@@ -94,8 +93,6 @@ bool LinkedList::exists(int num)
 /**
  * Function that returns value at top of stack
  *
- * @param  none
- * @pre exists a valid stack
  * @returns  returns top value if successful
  **/
 int LinkedList::top()
